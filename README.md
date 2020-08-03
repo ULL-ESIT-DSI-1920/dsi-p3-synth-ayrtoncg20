@@ -38,7 +38,28 @@ conversation.addMessage([
 5. Genera el build y haz el despliegue en GitHub Pages, de modo que se pueda ver el ejemplo en vivo.
 
 
+Lo primero que hemos hecho es crear los directorios de la práctica con el fin de tener la práctica bien estructurada. 
+En este caso el árbol de directorios sería el siguiente:
 
+Dsi-p3-synth-ayrtoncg20
+  .cache
+  .dist
+  imagenes
+  node_modules
+  src
+    assets
+    css
+      index.css
+    js
+      Conversation.js
+      index.js
+      Profile.js
+    index.html
+  package.json
+  package-lock.json
+  README.md
+  
+Una vez hemos hecho las carpetas comenzamos a desarrollar el código
 
 
 
