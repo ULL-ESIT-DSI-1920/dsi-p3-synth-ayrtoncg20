@@ -4,15 +4,19 @@ En la siguiente práctica, vamos a utilizar la API de síntesis de voz del naveg
 
   - Una clase Profile para guardar las características del personaje, donde se pueden encontrar cosas como la velocidad de diálogo, el avatar del personaje o el color del texto. Por ejemplo:
 
+```
 const manzProfile = new Profile("Manz", {
   lang: "es",
   rate: 2.0,
   pitch: 1.0,
   color: "#ff0000",
 });
+```
 
 - Una clase Conversation para trabajar y controlar las conversaciones de todos los personajes. Una conversación se podría definir como un array de objetos, donde cada uno contiene la frase y el personaje que la pronuncia.
 
+
+```
 const conversation = new Conversation(box);
 
 conversation.addMessage([
@@ -25,7 +29,7 @@ conversation.addMessage([
   },
   { author: robotProfile, text: "Es que soy del norte" },
 ]);
-
+```
 
 1. Implementa la clase Profile para definir las características del personaje.
 2. Implementa la clase Conversation para definir la conversación global y su manejo del sintetizador de forma que sea ajeno a la página principal.
