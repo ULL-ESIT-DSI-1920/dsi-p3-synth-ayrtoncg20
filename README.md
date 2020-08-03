@@ -61,7 +61,16 @@ Dsi-p3-synth-ayrtoncg20
   
 Una vez hemos hecho las carpetas comenzamos a desarrollar el código
 
+Lo primero que creamos es el index.html donde podemos observar que hacemos uso de css y de javascript para poder añadir las clases. Declaramos un boton para comenzar el juego llamado play. 
+
 ![imagen1](imagenes/index_html.png)
+
+Lo siguiente que hice fue crear el archivo index.js 
+
+En este archivo tenemos que importar las clases que vamos a utilizar en este caso la clase Profile y la clase Conversation. Declaramos una serie de variables para los personajes
+
+![imagen2](imagenes/index_js.png)
+
 
 
 
