@@ -67,10 +67,24 @@ Lo primero que creamos es el index.html donde podemos observar que hacemos uso d
 
 Lo siguiente que hice fue crear el archivo index.js 
 
-En este archivo tenemos que importar las clases que vamos a utilizar en este caso la clase Profile y la clase Conversation. Declaramos una serie de variables para los personajes
+En este archivo tenemos que importar las clases que vamos a utilizar en este caso la clase Profile y la clase Conversation. Declaramos una serie de variables para los personajes, la imagen y la voz que definiremos a continuación. Buscamos las voces que tiene nuestro navegador y las asignamos a las variables creadas anteriomente, lo mismo con las imagenes aunque en este caso solo hay que igualar. 
 
-![imagen2](imagenes/index_js.png)
+A continuación creamos los objetos de la clase Profile, al cual le pasamos el nombre, la imagen, la voz y una serie de propiedades como el lenguaje el volumen, el color del texto...
 
+También creamos un objeto conversacion y le pasamos por parametro el chat
+
+Una vez que toquemos el boton de play el chat se pondra visible. 
+
+Le añadimos los mensajes al objeto conversacion como está definido en la práctica. 
+
+![imagen2](imagenes/index_js1.png)
+![imagen3](imagenes/index_js2.png)
+
+A continuacion tenemos que crear la clase profile, en esta clase estarán los atributos de cada personaje.
+
+Creamos una clase con el nombre, la imagen, la voz y un array de propiedades donde se encuentran almacenadas totdas las demás. El nombre de este objeto es igual al nombre que le paso por parámetro al crear el objeto en el index.js
+
+![imagen4](imagenes/Profile.png)
 
 
 
