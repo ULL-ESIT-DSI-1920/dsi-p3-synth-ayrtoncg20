@@ -57,7 +57,7 @@ speechSynthesis.onvoiceschanged = function () {
     //Cremos un objeto conversation cuando coga el identificador del chat
     const conversation = new Conversation(document.querySelector('#chat')); //creamos una constante chat y le pasamos a la clase conversacion el chat con document.query
     //Cuando hagamos click en el boton
-    document.querySelector("button").ontouchstart = () => {
+    document.querySelector("button").onclick = () => {
         //El chat se vuelve visible una vez le damos al boton del play
         document.querySelector('#chat').style.visibility = 'visible';
         //Añadimos al objeto conversation los mensajes
