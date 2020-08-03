@@ -93,12 +93,9 @@ Llamamos a la funcion llamada addMessage. Metemos en texto todo lo que hay en ad
 
 ![imagen5](imagenes/Conversation.png)
 
+### Retos
 
-
-
-
-
-
+- Implementa la API de vibración del navegador en tu ejemplo, para que vibre cada vez que un personaje pronuncie una palabra o frase. Ten muy en cuenta que la API de vibración sólo puedes comprobarla en móviles o tablets que lo soporten.
 
 
 
