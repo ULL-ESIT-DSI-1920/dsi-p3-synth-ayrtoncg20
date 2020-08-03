@@ -61,10 +61,7 @@ Dsi-p3-synth-ayrtoncg20
   
 Una vez hemos hecho las carpetas comenzamos a desarrollar el código
 
-
-
-
-
+![imagen1](imagenes/index_html.png)
 
 
 
