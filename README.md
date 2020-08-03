@@ -82,9 +82,17 @@ Le añadimos los mensajes al objeto conversacion como está definido en la prác
 
 A continuacion tenemos que crear la clase profile, en esta clase estarán los atributos de cada personaje.
 
-Creamos una clase con el nombre, la imagen, la voz y un array de propiedades donde se encuentran almacenadas totdas las demás. El nombre de este objeto es igual al nombre que le paso por parámetro al crear el objeto en el index.js
+Creamos una clase con el nombre, la imagen, la voz y un array de propiedades donde se encuentran almacenadas todas las demás. El nombre de este objeto es igual al nombre que le paso por parámetro al crear el objeto en el index.js
 
 ![imagen4](imagenes/Profile.png)
+
+
+Por último se crea la clase Conversation a la cual se le pasa por parametro un chat que va a ser el cuadro de texto donde se reproduciran los textos de los personajes. 
+
+Llamamos a la funcion llamada addMessage. Metemos en texto todo lo que hay en addMessage para luego poder acceder a ello con el metodo map, una vez hecho esto ya podemos crear un mensaje msg y agregarle todas las propiedades para despues mostrarlas por pantalla con un innerHTML y la funcion speechSynthesis.speak(msg) vista en los videos de introducción a la práctica
+
+![imagen5](imagenes/Conversation.png)
+
 
 
 
