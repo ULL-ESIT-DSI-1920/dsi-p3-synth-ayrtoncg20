@@ -25,6 +25,7 @@
     font-size: 35px;
     margin: 8px 4px;
     cursor: pointer;
+    style: pointer;
 }
 
 #chat {
