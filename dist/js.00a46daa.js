@@ -263,10 +263,9 @@ speechSynthesis.onvoiceschanged = function () {
 
   var conversation = new _Conversation.default(document.querySelector('#chat')); //creamos una constante chat y le pasamos a la clase conversacion el chat con document.query
   //Cuando hagamos click en el boton
+  //$(document.querySelector("button")).on('touchstart click', function () { /* do something... */
 
-  $(document.querySelector("#button")).on('touchstart click', function () {
-    /* do something... */
-    //document.querySelector("button").onclick = () => {
+  document.querySelector("button").onclick = function () {
     //El chat se vuelve visible una vez le damos al boton del play *********************
     document.querySelector('#chat').style.visibility = 'visible'; //Añadimos al objeto conversation los mensajes
 
@@ -286,7 +285,7 @@ speechSynthesis.onvoiceschanged = function () {
       author: robotProfile,
       text: "Es que soy del norte"
     }]);
-  });
+  };
 };
 },{"./Profile.js":"js/Profile.js","./Conversation.js":"js/Conversation.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
