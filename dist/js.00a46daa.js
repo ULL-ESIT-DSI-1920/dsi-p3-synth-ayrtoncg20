@@ -267,7 +267,7 @@ speechSynthesis.onvoiceschanged = function () {
   $(document.querySelector("button")).on('touchstart click', function () {
     /* do something... */
     //document.querySelector("button").onclick = () => {
-    //El chat se vuelve visible una vez le damos al boton del play
+    //El chat se vuelve visible una vez le damos al boton del play,
     document.querySelector('#chat').style.visibility = 'visible'; //Añadimos al objeto conversation los mensajes
 
     conversation.addMessage([{
