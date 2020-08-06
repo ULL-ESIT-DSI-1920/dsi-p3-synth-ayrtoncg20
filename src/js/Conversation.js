@@ -27,8 +27,6 @@ export default class Conversation { //Creamos la clase conversacion
                 </div>`;
             }
             speechSynthesis.speak(msg);
-            window.navigator.vibrate(200);
-
         });
     }
 }
