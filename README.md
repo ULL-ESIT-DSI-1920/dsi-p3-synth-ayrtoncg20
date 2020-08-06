@@ -97,14 +97,6 @@ Llamamos a la funcion llamada addMessage. Metemos en texto todo lo que hay en ad
 
 - Implementa la API de vibración del navegador en tu ejemplo, para que vibre cada vez que un personaje pronuncie una palabra o frase. Ten muy en cuenta que la API de vibración sólo puedes comprobarla en móviles o tablets que lo soporten.
 
-
-
-
-
-
-
-
-
-
+He intentado implementar la api de vibración pero no se como hacer para que la página web se me despliegue bien en el teléfono móvil, por lo que, no he podido probar, si al final tengo tiempo intentaré hacerlo de nuevo 
 
 
