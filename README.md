@@ -100,3 +100,6 @@ Llamamos a la funcion llamada addMessage. Metemos en texto todo lo que hay en ad
 He intentado implementar la api de vibración pero no se como hacer para que la página web se me despliegue bien en el teléfono móvil, por lo que, no he podido probar, si al final tengo tiempo intentaré hacerlo de nuevo 
 
 
+Práctica desplegada en github-pages: https://ull-esit-dsi-1920.github.io/dsi-p3-synth-ayrtoncg20/
+
+
