@@ -117,38 +117,155 @@ import Profile './Profile.js'
 import Conversation from './Conversation.js'
 ```
 
-Declaramos una serie de variables para los personajes, la imagen y la voz que definiremos a continuación. Buscamos las voces que tiene nuestro navegador y las asignamos a las variables creadas anteriomente, lo mismo con las imagenes aunque en este caso solo hay que igualar. 
+Declaramos una serie de variables para los personajes, la imagen y la voz que definiremos a continuación.
 
-A continuación creamos los objetos de la clase Profile, al cual le pasamos el nombre, la imagen, la voz y una serie de propiedades como el lenguaje el volumen, el color del texto...
+Variables para las voces:
 
-También creamos un objeto conversacion y le pasamos por parametro el chat
+```
+var Ayrton_voice
+var Robot_voice
+var Breadman_voice
+```
 
-Una vez que toquemos el boton de play el chat se pondra visible. 
+Variables para las imagenes:
 
-Le añadimos los mensajes al objeto conversacion como está definido en la práctica. 
+```
+var Ayrton_image
+var Robot_image
+var Breadman_image
+```
+
+A las imagenes le igualamos una URL de una imagen de internet, por lo que la variable va a contener ya la imagen, con respecto a las voces es un poco mas complicado por lo que vamos a explicarlo detalladamente a continuación
+
+Declaramos una funcion onvoiceschanged la cual escuchara si hay algun cambio de voces. Dentro de esta función utilizaremos getVoices() para que nos devuelva todas las voces que tiene nuestro navegador, que estań definidas por defecto, dentro de esas voces buscamos el nombre de la voz y se lo damos a cada variable que hemos declarado anteriormente. 
+
+Una vez hecho esto, ya tenemos las voces y las imagenes de los personajes en sus respectivas variables, por ello vamos a crear los objetos de los perfiles de cada personaje. Podemos observar en el siguiente código que creamos un objeto ayrtonProfile, robotProfile y breadmanProfile con la siguiente información:
+
+- Nombre del personaje 
+- Imagen del personaje (variable creada anteriormente)
+- Voz del personaje (variable creada anteriormente)
+- Array con la siguiente información:
+  - Lenguaje del personaje
+  - Velocidad de habla del personaje
+  - Tono de habla del personaje
+  - Color del personaje
+  - Volumen del personaje 
+  
+```
+const ayrtonProfile = new Profile("Ayrton", Ayrton_image, Ayrton_voice, {
+        lang: "es",
+        rate: 1.0,
+        pitch: 0.5,
+        color: "#74ff2e",
+        volume: 1
+    });
+
+    const robotProfile = new Profile("Robot", Robot_image, Robot_voice, {
+        lang: "es",
+        rate: 1.0,
+        pitch: 0.5,
+        color: "#f8ff13",
+        volume: 1
+    });
+
+    const breadmanProfile = new Profile("Breadman", Breadman_image, Breadman_voice, {
+        lang: "es",
+        rate: 1.0,
+        pitch: 0.5,
+        color: "#e800ff",
+        volume: 1
+    });
+
+```
+
+Para poder crear estos objetos de tipo Profile tenemos que tener una clase Profile creada, vamos a verla:
+
+Para poder hacer los perfiles de los personajes tenemos que crear un constructor con el nombre del personaje, la imagen, la voz y un array de propiedades (tono, velocidad, lenguaje, etc)
+Utilizamos la propiedad this para poder decir que este personaje va a tener los datos que se le pasan por parámetro desde el index.js. 
+
+```
+export default class Profile {
+    constructor(nombre, imagen, voice, propiedades) {
+        //
+        this.nombre = nombre; 
+        this.imagen = imagen; 
+        this.voice = voice; 
+        this.rate = propiedades.rate;
+        this.lang = propiedades.lang;
+        this.pitch = propiedades.pitch;
+        this.color = propiedades.color;
+        this.volume = propiedades.volume;
+    }
+
+}
+```
+
+![imagen4](imagenes/Profile.png)
+
+Ya tenemos los perfiles de los personajes creados por lo que avanzamos hasta la siguiente información, igual que creamos diferentes perfiles, tenemos que crear un objeto tipo conversacion, solo habrá una conversación. 
+
+Para ello utilizamos el siguiente código:
+
+```
+    const conversation = new Conversation(document.querySelector('#chat')); 
+```
+
+con ello creamos una nueva conversacion y le pasamos el div de chat que creamos en el index.html por parámetro. 
+
+A continuación, creamos un botón, el cual llama al boton que habiamos creado en el index.html anteriormente. 
+
+```
+const button = document.querySelector("button");
+```
+
+Le agregamos al boton un evento click, cuando el usuario haga un click en el boton, el chat se va a poner a visible:
+
+```
+button.addEventListener("click", () => {
+  document.querySelector('#chat').style.visibility = 'visible';
+  conversation.addMessage([
+            { author: ayrtonProfile, text: "¡Hola a todos! ¿Qué tal están?" },
+            { author: robotProfile, text: "Muy bien, ¡gracias!" },
+            { author: breadmanProfile, text: "Yo también muy bien" },
+            { author: ayrtonProfile, text: "El robot habla con un acento un tanto raro..." },
+            { author: robotProfile, text: "Es que soy del norte" },
+        ]);
+    });
+}
+```
+
+También le añadimos al objeto conversacion creado anteriormente los mensajes que va a tener nuestro diálogo.
 
 ![imagen2](imagenes/index_js1.png)
 ![imagen3](imagenes/index_js2.png)
 
-A continuacion tenemos que crear la clase profile, en esta clase estarán los atributos de cada personaje.
+Por último nos dirigimos a la clase Conversation la cual va a tener un constructor que se la pasa el chat por parámetro. 
 
-Creamos una clase con el nombre, la imagen, la voz y un array de propiedades donde se encuentran almacenadas todas las demás. El nombre de este objeto es igual al nombre que le paso por parámetro al crear el objeto en el index.js
+Llamamos a la funcion llamada addMessage. Metemos en texto todo lo que hay en addMessage para luego poder acceder a ello con el metodo map, una vez hecho esto ya podemos crear un mensaje msg y agregarle todas las propiedades para despues mostrarlas por pantalla con un innerHTML:
 
-![imagen4](imagenes/Profile.png)
+```
+msg.onstart = () => {
+                this.chat.innerHTML += `
+                <div class="texto" style="color: ${msg.color}; background-color:black; display: flex; align-items: center"> 
+                <img src="${msg.imagen}" width=\"150px\" height=\"150px\"> &nbsp; 
+                ${msg.nombre}: 
+                ${msg.text} 
+                </div>`;
+            }
+```
 
-
-Por último se crea la clase Conversation a la cual se le pasa por parametro un chat que va a ser el cuadro de texto donde se reproduciran los textos de los personajes. 
-
-Llamamos a la funcion llamada addMessage. Metemos en texto todo lo que hay en addMessage para luego poder acceder a ello con el metodo map, una vez hecho esto ya podemos crear un mensaje msg y agregarle todas las propiedades para despues mostrarlas por pantalla con un innerHTML y la funcion speechSynthesis.speak(msg) vista en los videos de introducción a la práctica
+A continuación llamamos a la función speechSynthesis.speak(msg) vista en los videos de introducción a la práctica para que se empiecen a repdroducir los mensajes por pantalla. 
 
 ![imagen5](imagenes/Conversation.png)
+
+Con lo comentado anteriormente ya hemos terminado la práctica. 
 
 ### Retos
 
 - Implementa la API de vibración del navegador en tu ejemplo, para que vibre cada vez que un personaje pronuncie una palabra o frase. Ten muy en cuenta que la API de vibración sólo puedes comprobarla en móviles o tablets que lo soporten.
 
 He intentado implementar la api de vibración pero no se como hacer para que la página web se me despliegue bien en el teléfono móvil, por lo que, no he podido probar, si al final tengo tiempo intentaré hacerlo de nuevo 
-
+Con respecto a lo de la vibración, el problema ha sido que cuando yo ponía la URL de la web desplegada en el github en el teléfono no me dejaba pulsar el botón, por lo que la práctica no se ponía en funcionamiento por lo que no podía probar si cuando hablaba alguien vibraba. 
 
 Práctica desplegada en github-pages: https://ull-esit-dsi-1920.github.io/dsi-p3-synth-ayrtoncg20/
 
